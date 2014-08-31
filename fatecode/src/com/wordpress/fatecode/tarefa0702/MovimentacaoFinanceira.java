@@ -20,5 +20,9 @@ public class MovimentacaoFinanceira {
 		
 		return dadosMovimentacao;
 	}
+
+	public double getValor() {
+		return valor;
+	}
  
 }
