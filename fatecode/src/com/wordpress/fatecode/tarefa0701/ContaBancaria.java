@@ -6,6 +6,7 @@ public class ContaBancaria {
 	private String cpf;
 	private double saldo;
 	private double limite;
+	private String[] extrato;
 	
 	public ContaBancaria(int numero, String nome, String cpf, double saldo) {
 		this.numero = numero;
@@ -14,18 +15,32 @@ public class ContaBancaria {
 		this.saldo = saldo;
 	}
 	
-	public void sacar(double valor) {
-		if (valor <= this.saldo + this.limite)
+	public void sacar(double valor, String dadosMovimentacao) {
+		if (valor <= this.saldo + this.limite) {
 			this.saldo -= valor;
-		else 
+			extrato[extrato.length] = dadosMovimentacao;
+		} else { 
 			throw new IllegalArgumentException("Saldo insuficiente.");
+		}
 	}
 	
-	public void depositar(double valor) {
-		if (valor > 0)
+	public void depositar(double valor, String dadosMovimentacao) {
+		if (valor > 0) {
 			this.saldo =+ valor;
-		else 
+			extrato[extrato.length] = dadosMovimentacao;
+		} else { 
 			throw new IllegalArgumentException("O valor do deposito deve ser positivo.");
+		}
+	}
+	
+	public String getExtrato() {
+		String dados = "";
+		
+		for (String movimento : extrato) {
+			dados += movimento + "\n";
+		} 
+		
+		return dados;
 	}
 
 	public int getNumero() {
