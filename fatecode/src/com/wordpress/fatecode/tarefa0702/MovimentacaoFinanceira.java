@@ -2,7 +2,7 @@ package com.wordpress.fatecode.tarefa0702;
 
 import java.util.Date;
 
-public class MovimentacaoFinanceira {
+public abstract class MovimentacaoFinanceira implements Transacao{
 	private Date timeStamp;
 	private String tipo;
 	private double valor;
