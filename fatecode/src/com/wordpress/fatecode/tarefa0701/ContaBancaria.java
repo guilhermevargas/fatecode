@@ -29,7 +29,7 @@ public class ContaBancaria {
 
 	public void depositar(double valor, String dadosMovimentacao) {
 		if (valor > 0) {
-			this.saldo = +valor;
+			this.saldo += valor;
 			extrato.add(dadosMovimentacao);
 		} else {
 			throw new IllegalArgumentException(
